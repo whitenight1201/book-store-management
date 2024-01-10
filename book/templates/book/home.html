@@ -1,0 +1,38 @@
+
+{% extends 'book/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="container">
+<div class="container row">
+	<div class="col-lg-10">
+		<h3>BOOKS:</h3>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th><Title></Title></th>
+					<th>Author</th>
+					<th>Price</th>
+                    <th>Edition</th>
+                    <th></th>
+				</tr>
+                {% for book in books %}
+		        <tr>
+					<td><b>{{book.title}}</b> </td>
+                    <td>{{book.Author}} </td>
+					<td>{{book.Price}} </td>
+					<td> {{book.Edition}} </td>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'addtocart' book.id %}">Add to cart</a> </td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+	
+</div>
+
+{% endblock %}
+       
